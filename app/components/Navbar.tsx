@@ -66,7 +66,7 @@ export default function Navbar() {
                         alt="Cognibuild"
                         width={240}
                         height={56}
-                        className="h-14 w-auto object-contain"
+                        className="h-10 md:h-14 w-auto object-contain"
                         priority
                     />
                 </Link>

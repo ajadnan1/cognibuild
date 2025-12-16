@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section className="relative pt-40 pb-20 flex items-center justify-center overflow-hidden">
             {/* Decorative Shapes */}
             <div className="absolute top-1/3 left-10 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl animate-float delay-100" />
             <div className="absolute bottom-1/3 right-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl animate-float delay-700" />

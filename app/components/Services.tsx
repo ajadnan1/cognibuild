@@ -10,21 +10,21 @@ const services = [
     {
         image: "/services/ai-automation.png",
         title: "AI Automation",
-        description: "Deploy intelligent agents that work 24/7. We build autonomous workflows to handle complex tasks, reducing operational costs by up to 60%.",
+        description: "Deploy intelligent, autonomous agents that operate 24/7 to streamline complex workflows and drastically reduce operational overhead.",
         tags: ["Agentic AI", "Process Automation"],
         href: "/services/ai-automation",
     },
     {
         image: "/services/data-engineering.png",
         title: "Data Engineering",
-        description: "Your data is your moat. We architect scalable data meshes and governance frameworks that turn raw information into a competitive asset.",
+        description: "Transform your data into a strategic asset. We architect scalable, secure data meshes that turn raw information into reliable intelligence.",
         tags: ["Data Mesh", "Governance"],
         href: "/services/data-engineering",
     },
     {
         image: "/services/custom-projects.png",
         title: "Custom Projects",
-        description: "Off-the-shelf software fails at the edge. We engineer bespoke AI solutions and platforms specifically for your unique business logic.",
+        description: "When off-the-shelf tools fall short, we engineer bespoke AI platforms tailored specifically to your unique business logic and edge cases.",
         tags: ["Full-Stack AI", "Enterprise Dev"],
         href: "/services/custom-projects",
     },
@@ -97,10 +97,10 @@ export default function Services() {
     };
 
     return (
-        <section id="services" className="py-24 relative overflow-hidden">
+        <section id="services" className="py-12 relative overflow-hidden">
             <div className="container mx-auto px-6">
                 <div className="mb-20 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Core Capabilities</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Services</h2>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                         We focus on high-impact areas where technology creates exponential value.
                     </p>
