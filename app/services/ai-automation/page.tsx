@@ -1,7 +1,11 @@
-"use client";
-
+import { Metadata } from "next";
 import ServiceLayout from "@/app/components/ServiceLayout";
 import { Brain } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "AI Automation | Agents & Workflows",
+    description: "Deploy autonomous AI agents to plan, execute, and verify complex business tasks without human intervention.",
+};
 
 export default function AIAutomationPage() {
     return (

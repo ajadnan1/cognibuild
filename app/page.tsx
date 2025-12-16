@@ -1,9 +1,16 @@
+import { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import CaseStudies from "./components/CaseStudies";
 import Blogs from "./components/Blogs";
 import Footer from "./components/Footer";
+
+export const metadata: Metadata = {
+  title: "Cognibuild | AI & Data Strategy",
+  description: "We help enterprises modernize their data stack and deploy autonomous AI agents to drive efficiency and growth.",
+};
+
 
 export default function Home() {
   return (

@@ -1,7 +1,11 @@
-"use client";
-
+import { Metadata } from "next";
 import ServiceLayout from "@/app/components/ServiceLayout";
 import { Code2 } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "Custom Projects | Bespoke AI Solutions",
+    description: "High-performance, custom software solutions infused with state-of-the-art AI capabilities tailored to your specific edge cases.",
+};
 
 export default function CustomProjectsPage() {
     return (

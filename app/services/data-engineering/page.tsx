@@ -1,7 +1,11 @@
-"use client";
-
+import { Metadata } from "next";
 import ServiceLayout from "@/app/components/ServiceLayout";
 import { Database } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "Data Engineering | Modern Data Platforms",
+    description: "Architect scalable data platforms, pipelines, and warehouses. Expert data integration, migration, and quality engineering services.",
+};
 
 export default function DataEngineeringPage() {
     return (
