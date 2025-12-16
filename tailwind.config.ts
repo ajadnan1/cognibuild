@@ -12,7 +12,7 @@ const config: Config = {
         background: "#ffffff", // White
         foreground: "#0f172a", // Slate 900
         primary: {
-          DEFAULT: "#4f46e5", // Indigo 600 (Slightly darker for contrast)
+          DEFAULT: "#4f46e5", // Indigo 600
           foreground: "#ffffff",
         },
         secondary: {

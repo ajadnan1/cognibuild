@@ -35,19 +35,16 @@ export default function Hero() {
                     </h1>
 
                     <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                        We don't just analyze data. We engineer <span className="font-semibold text-slate-800">clarity</span> from chaos, building the AI infrastructure that powers your next decade of growth.
+                        Let's build something extraordinary, together. Bringing your vision to life with <span className="font-semibold text-slate-800">AI automation, data engineering,</span> and custom software to transform complex challenges into elegant solutions.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <button className="group relative px-8 py-4 bg-slate-900 text-white font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/30">
+                        <a href="#case-studies" className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30">
                             <span className="relative z-10 flex items-center gap-2">
-                                Start Transformation <ArrowRight size={18} />
+                                Explore Our Work <ArrowRight size={18} />
                             </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </button>
-                        <button className="px-8 py-4 text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all font-medium shadow-sm hover:shadow-md">
-                            Explore Our Work
-                        </button>
+                            <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </a>
                     </div>
                 </motion.div>
             </div>

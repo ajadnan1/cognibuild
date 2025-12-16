@@ -1,3 +1,5 @@
+import { Linkedin, Twitter, Github } from "lucide-react";
+
 export default function Footer() {
     return (
         <footer className="relative pt-20 pb-10 overflow-hidden">
@@ -12,15 +14,15 @@ export default function Footer() {
                             Empowering enterprises with intelligent data solutions. We build the future with cognitive engineering.
                         </p>
                         <div className="flex gap-4">
-                            {/* Social Placeholders */}
-                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer">
-                                L
+                            {/* Social Icons */}
+                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer text-white">
+                                <Linkedin size={20} />
                             </div>
-                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer">
-                                X
+                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer text-white">
+                                <Twitter size={20} />
                             </div>
-                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer">
-                                G
+                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer text-white">
+                                <Github size={20} />
                             </div>
                         </div>
                     </div>
