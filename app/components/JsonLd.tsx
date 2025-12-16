@@ -8,8 +8,6 @@ export default function JsonLd() {
         url: siteConfig.url,
         logo: `${siteConfig.url}/icon.png`,
         sameAs: [
-            siteConfig.links.twitter,
-            siteConfig.links.github,
             siteConfig.links.linkedin,
         ],
         description: siteConfig.description,

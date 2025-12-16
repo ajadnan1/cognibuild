@@ -1,5 +1,5 @@
 import { siteConfig } from "@/app/config/site";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -19,22 +19,15 @@ export default function Footer() {
                             <a href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer text-white">
                                 <Linkedin size={20} />
                             </a>
-                            <a href={siteConfig.links.twitter} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer text-white">
-                                <Twitter size={20} />
-                            </a>
-                            <a href={siteConfig.links.github} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer text-white">
-                                <Github size={20} />
-                            </a>
                         </div>
                     </div>
 
                     <div>
                         <h3 className="font-semibold mb-6 text-white text-lg">Services</h3>
                         <ul className="space-y-4 text-slate-400">
-                            <li className="hover:text-white cursor-pointer transition-colors">Generative AI</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Data Strategy</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Predictive Analytics</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">ML Engineering</li>
+                            <li><a href="/services/ai-automation" className="hover:text-white cursor-pointer transition-colors">AI Automation</a></li>
+                            <li><a href="/services/data-engineering" className="hover:text-white cursor-pointer transition-colors">Data Engineering</a></li>
+                            <li><a href="/services/custom-projects" className="hover:text-white cursor-pointer transition-colors">Custom Projects</a></li>
                         </ul>
                     </div>
 

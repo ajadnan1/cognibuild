@@ -4,8 +4,6 @@ export const siteConfig = {
     url: "https://cognibuild.com.au", // Valid production URL
     ogImage: "https://cognibuild.com/og.jpg", // We should probably create this or use a default
     links: {
-        twitter: "https://twitter.com/cognibuild",
-        github: "https://github.com/cognibuild",
         linkedin: "https://www.linkedin.com/company/cognibuild-au/"
     },
     keywords: [
