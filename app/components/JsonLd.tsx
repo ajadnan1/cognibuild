@@ -10,6 +10,7 @@ export default function JsonLd() {
         sameAs: [
             siteConfig.links.twitter,
             siteConfig.links.github,
+            siteConfig.links.linkedin,
         ],
         description: siteConfig.description,
     };
