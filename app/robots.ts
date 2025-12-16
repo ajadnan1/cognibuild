@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://cognibuild.com/sitemap.xml',
+        sitemap: 'https://cognibuild.com.au/sitemap.xml',
     }
 }
