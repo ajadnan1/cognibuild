@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -32,15 +32,50 @@ const services = [
 
 export default function Services() {
     const [activeIndex, setActiveIndex] = useState(1); // Start with middle item
+    const [isHovered, setIsHovered] = useState(false);
+
+    // Use refs for touch coordinates to handle rapid swipes efficiently
+    const touchStart = useRef<number | null>(null);
+    const touchEnd = useRef<number | null>(null);
+
+    // Min swipe distance (in px)
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        touchEnd.current = null; // Reset end position
+        touchStart.current = e.targetTouches[0].clientX;
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        touchEnd.current = e.targetTouches[0].clientX;
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart.current || !touchEnd.current) return;
+        const distance = touchStart.current - touchEnd.current;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            nextSlide();
+        }
+        if (isRightSwipe) {
+            prevSlide();
+        }
+    };
 
     // Auto-rotate effect
     useEffect(() => {
+        if (isHovered) return; // Stop auto-rotation if hovered
+
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % services.length);
         }, 6000); // 6 seconds to read
 
+        // Cleanup interval on unmount or when dependencies change
+        // This effectively resets the timer whenever activeIndex changes (manual or auto)
         return () => clearInterval(interval);
-    }, []);
+    }, [isHovered, activeIndex]);
 
     const nextSlide = () => {
         setActiveIndex((prev) => (prev + 1) % services.length);
@@ -107,7 +142,14 @@ export default function Services() {
                 </div>
 
                 {/* 3D Carousel Container */}
-                <div className="relative h-[600px] flex items-center justify-center perspective-1000">
+                <div
+                    className="relative h-[600px] flex items-center justify-center perspective-1000 touch-pan-y"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                >
                     {services.map((service, index) => {
                         const style = getCardStyle(index);
                         const isCenter = style.zIndex === 20;
@@ -118,29 +160,36 @@ export default function Services() {
                                 initial={false}
                                 animate={style}
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="absolute w-full max-w-lg"
+                                className="absolute w-full max-w-lg cursor-pointer"
                                 style={{ transformStyle: "preserve-3d" }}
+                                onClick={() => setActiveIndex(index)}
                             >
                                 <div
                                     className={`
                                         glass-card p-10 rounded-3xl h-full flex flex-col bg-white border border-slate-100 shadow-xl
-                                        ${isCenter ? 'shadow-2xl ring-1 ring-slate-900/5' : 'pointer-events-none'}
+                                        ${isCenter ? 'shadow-2xl ring-1 ring-slate-900/5' : ''}
                                     `}
                                 >
                                     {/* Gradient Blob on Hover (Only visible on center) */}
                                     <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-indigo-500/10 to-cyan-500/10 rounded-full blur-2xl transition-transform duration-500" />
 
                                     <div className="mb-8 relative z-10 flex justify-center md:justify-start">
-                                        <Image
-                                            src={service.image}
-                                            alt={service.title}
-                                            width={140}
-                                            height={140}
-                                            className="w-32 h-32 object-contain drop-shadow-xl"
-                                        />
+                                        <Link href={service.href} className="block hover:scale-105 transition-transform duration-300">
+                                            <Image
+                                                src={service.image}
+                                                alt={service.title}
+                                                width={140}
+                                                height={140}
+                                                className="w-32 h-32 object-contain drop-shadow-xl"
+                                            />
+                                        </Link>
                                     </div>
 
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900 relative z-10 text-center md:text-left">{service.title}</h3>
+                                    <Link href={service.href} className="block group">
+                                        <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900 relative z-10 text-center md:text-left group-hover:text-indigo-600 transition-colors">
+                                            {service.title}
+                                        </h3>
+                                    </Link>
                                     <p className="text-slate-600 leading-relaxed mb-8 relative z-10 text-lg text-center md:text-left">
                                         {service.description}
                                     </p>
@@ -162,6 +211,9 @@ export default function Services() {
                                                     ? 'bg-gradient-to-r from-indigo-600 to-cyan-600 text-white shadow-lg hover:shadow-cyan-500/30 hover:scale-105'
                                                     : 'text-slate-400 cursor-default'}
                                             `}
+                                            onClick={(e) => {
+                                                if (!isCenter) e.preventDefault();
+                                            }}
                                         >
                                             Explore <ArrowRight size={18} />
                                         </Link>
